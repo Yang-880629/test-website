@@ -1,39 +1,134 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yang的第一個 GitHub 網頁</title>
-  <style>
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
-      padding: 2rem;
-      text-align: center;
-    }
-    h1 {
-      color: #007acc;
-    }
-    p {
-      font-size: 1.2rem;
-    }
-    a.button {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      margin-top: 2rem;
-      background-color: #007acc;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    a.button:hover {
-      background-color: #005fa3;
-    }
-  </style>
+<meta charset="UTF-8" />
+<title>盛泰塑膠廠</title>
+
+<!-- ★ 建議導入 Noto Sans TC 字體，風格更一致 -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* -------- 全域 Reset -------- */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans TC',sans-serif;}
+
+/* -------- 外框 -------- */
+header{
+  background:#ffffff;
+  border-top:1px solid #1e2e50;         /* 上細線 */
+  border-bottom:1px solid #e5e5e5;      /* 下細線 (可省略) */
+}
+
+/* -------- 主要導覽列 -------- */
+.navbar{
+  max-width:1200px;                     /* 中央對齊 */
+  margin:0 auto;
+  padding:0 1rem;
+  height:90px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* -------- 品牌／Logo -------- */
+.brand{
+  font-size:36px;
+  color:#323840;
+  font-weight:700;
+  margin-right:3rem;
+  white-space:nowrap;
+}
+
+/* -------- 導覽連結 -------- */
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:3rem;                             /* 連結間距 */
+}
+
+nav a{
+  text-decoration:none;
+  font-size:24px;
+  font-weight:700;
+  color:#1e2e50;
+  padding:1.5rem 2rem;                  /* 讓 hover/active 有背景塊 */
+  transition:background-color .3s,color .3s;
+}
+
+nav a.active,
+nav a:hover{
+  background:#1e2e50;
+  color:#ffffff;
+}
+
+/* -------- 搜尋框 -------- */
+.search{
+  display:flex;
+}
+
+.search input{
+  width:320px;
+  height:45px;
+  border:1px solid #1e2e50;
+  border-right:none;                    /* 與按鈕合併 */
+  padding:0 1rem;
+  font-size:18px;
+}
+
+.search button{
+  width:60px;
+  border:none;
+  background:#1e2e50;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* 內嵌的 SVG 放大鏡 */
+.search button svg{
+  width:24px;
+  height:24px;
+  fill:#ffffff;
+}
+
+/* -------- RWD：平板以下自動換行 -------- */
+@media (max-width:768px){
+  .navbar{flex-wrap:wrap;gap:1rem;height:auto;}
+  nav ul{flex-wrap:wrap;gap:1.5rem;}
+  .search input{width:200px;}
+}
+</style>
 </head>
+
 <body>
-  <h1>👋 哈囉！宜穎</h1>
-  <p>哇細小溦</p>
+
+<header>
+  <div class="navbar">
+    <!-- Logo / 品牌 -->
+    <div class="brand">盛泰塑膠廠</div>
+
+    <!-- 導覽列 -->
+    <nav>
+      <ul>
+        <li><a href="#" class="active">首頁</a></li>
+        <li><a href="#">關於我們</a></li>
+        <li><a href="#">產品展示</a></li>
+        <li><a href="#">聯絡我們</a></li>
+      </ul>
+    </nav>
+
+    <!-- 搜尋表單 -->
+    <form class="search" action="#" method="get">
+      <input type="text" name="q" placeholder="關鍵字搜尋…" />
+      <button type="submit" aria-label="Search">
+        <!-- 純 SVG 放大鏡，不依賴外部 icon 套件 -->
+        <svg viewBox="0 0 24 24">
+          <path d="M15.5 14h-.79l-.28-.27a6.47 6.47 0 001.48-5.34C15.08 5.59 12.5 3 9.25 3S3.42 5.59 3.42 8.39 5.99 13.78 9.25 13.78c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l4.25 4.25 1.25-1.25L15.5 14zm-6.25 0C7.01 14 5 11.99 5 9.25S7.01 4.5 9.25 4.5 13.5 6.51 13.5 9.25 11.49 14 9.25 14z"/>
+        </svg>
+      </button>
+    </form>
+  </div>
+</header>
+
 </body>
 </html>
