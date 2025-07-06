@@ -127,5 +127,96 @@ nav a.active{
   </div>
 </header>
 
+<main>
+<!-- ★ 新增：放在 <main> 中任何想顯示的位置 -->
+<section class="fade-slider">
+  <div class="slides">
+    <img src="首頁1.png"  alt="形象照 1">
+    <img src="首頁2.png"  alt="形象照 2">
+    <img src="首頁3.png"  alt="形象照 3">
+  </div>
+</section>
+
+<section class="info-card" id="contact">
+  <h2>公司聯絡資訊</h2>
+  <ul>
+    <li><strong>公司名稱：</strong>盛泰塑膠廠</li>
+    <li><strong>地址：</strong>臺南市安南區海佃路二段 235 號</li>
+    <li><strong>郵遞區號：</strong>709</li>
+    <li><strong>電話：</strong>06-2560055、06-2554055</li>
+    <li><strong>傳真：</strong>06-2556537</li>
+    <li><strong>聯絡人：</strong>劉小姐</li>
+    <li><strong>E-mail：</strong>
+      <a href="mailto:liu76505@gmail.com">liu76505@gmail.com</a>
+    </li>
+  </ul>
+</section>
+
+<style>
+/* ★ 新增：Slider 基本設定 */
+.fade-slider{
+  width:100%;
+  max-width:auto;
+  margin:2rem auto;
+  overflow:hidden;           /* 避免上一張被看到 */
+}
+
+.fade-slider .slides{
+  position:relative;
+  height:500px;              /* 可依需求調整 */
+}
+
+.fade-slider img{
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  animation:fade 12s infinite;
+  opacity:0;
+}
+
+/* 依序延遲，形成輪播 */
+.fade-slider img:nth-child(1){animation-delay:0s;}
+.fade-slider img:nth-child(2){animation-delay:4s;}
+.fade-slider img:nth-child(3){animation-delay:8s;}
+
+@keyframes fade{
+  0%   {opacity:0;}
+  5%   {opacity:1;}
+  30%  {opacity:1;}
+  35%  {opacity:0;}
+  100% {opacity:0;}
+}
+/* ---------- Info Card ---------- */
+.info-card{
+  display:inline-block;      /* 讓寬度隨內容而變 */
+  width:fit-content;         /* 現代瀏覽器支援，自動＝最長列寬 */
+  margin:3rem 0 3rem 1rem;   /* 上下 3rem，左側 1rem，右側 0 */
+  padding:2rem 2.5rem;
+  border:1px solid #e5e5e5;
+  border-radius:8px;
+  background:#fafafa;
+  color:#323840;
+  line-height:1.8;
+}
+
+.info-card h2{
+  font-size:28px;
+  color:#1e2e50;
+  margin-bottom:1rem;
+}
+
+.info-card ul{list-style:none;padding:0;}
+.info-card li+li{margin-top:.4rem;}
+
+.info-card a{
+  color:#1e2e50;
+  text-decoration:none;
+}
+.info-card a:hover{opacity:.8;}
+
+</style>
+
+
 </body>
 </html>
